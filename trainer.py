@@ -101,7 +101,6 @@ class SegNet:
         if save_predictions:
             for i in range(predict.shape[0]):
                 curr = cv2.resize(predict[i], gl.ORIGINAL_IMG_SIZE)
-                # cv2.imwrite('/Users/chendi/data_competition/cv/miccai_2022_baidu/pre_result/Layer_Segmentations/0%d.png' % (predict.shape[0]+i+1), curr)
                 cv2.imwrite('./res/0%d.png' % (predict.shape[0]+i+1), curr)
 
 
