@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-@Time : 2022/6/26 1:16 下午
-@Auth : zcd_zhendeshuai
-@File : trainer.py
-@IDE  : PyCharm
-
-"""
 import cv2
 import keras.callbacks
 import numpy as np
