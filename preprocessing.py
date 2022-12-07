@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-@Time : 2022/6/26 9:29 上午
-@Auth : zcd_zhendeshuai
-@File : preprocessing.py
-@IDE  : PyCharm
-
-"""
-
 import os
 
 import numpy as np
