@@ -33,6 +33,7 @@ def get_Float_ListFeature(value):
 def bytes_feature(value):
     """Returns a bytes_list from a string / byte."""
     if isinstance(value, type(tf.constant(0))):  # if value is tensor
+        
         value = value.numpy()  # get value of tensor
     return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
@@ -223,3 +224,14 @@ def dice_coefficient(y_true, y_pred, smooth=1):
     union = tf.reduce_sum(y_true, axis=[1, 2, 3]) + tf.reduce_sum(y_pred, axis=[1, 2, 3])
     dice = tf.reduce_mean((2. * intersection + smooth) / (union + smooth), axis=0)
     return dice
+
+def sub_loss(y_true, y_pred, from_logts=True):
+    print(y_pred.shpae)
+    breakpoint()
+    h,w,c= y_pred.shape
+
+    y_predShift=np.hstack((np.zeros((h,1,c)),y_pred[:,1:]))
+
+    loss= ((y_pred-y_predShift).sum())/(h*w*c)
+
+    return loss
