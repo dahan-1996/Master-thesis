@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-@Time : 2022/6/26 9:39 上午
-@Auth : zcd_zhendeshuai
-@File : common_utils.py
-@IDE  : PyCharm
-
-"""
-
 import tensorflow as tf
 
 K = tf.keras.backend
