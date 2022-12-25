@@ -226,12 +226,16 @@ def dice_coefficient(y_true, y_pred, smooth=1):
     return dice
 
 def sub_loss(y_true, y_pred, from_logts=True):
-    print(y_pred.shpae)
-    breakpoint()
-    h,w,c= y_pred.shape
-
-    y_predShift=np.hstack((np.zeros((h,1,c)),y_pred[:,1:]))
-
-    loss= ((y_pred-y_predShift).sum())/(h*w*c)
+    t,h,w,c= y_pred.shape # (0, 1024,1024, 4)
+    #breakpoint()
+    y_new= tf.roll(y_pred,shift=[1],axis=[0]) #roll down one dimen
+    
+    y_new = y_new[:1] #set first dim to 0 
+    
+    #breakpoint()
+    #print(tf.reduce_sum(y_pred-y_new).numpy())
+    loss= (tf.reduce_sum(y_pred-y_new) / (h*w))*1000 
+    #print(loss)
+    #breakpoint()
 
     return loss
