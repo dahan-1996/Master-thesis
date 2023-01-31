@@ -75,8 +75,12 @@ class Pre_processing:
                 label[label == 80] = 2
                 label[label == 160] = 3
                 label[label == 255] = 0
+                #print('0',label.shape)
                 label_resized = cv2.resize(label, gl.RESIZED)
+                #print('1',label_resized.shape)
                 label_resized = label_resized[:, :, 1]
+                #print('2',label_resized.shape)
+                #breakpoint()
                 img_feature = bytes_feature(serialize_array(image_resized))
                 label_feature = bytes_feature(serialize_array(label_resized))
                 single_row_dict = {}
@@ -148,7 +152,6 @@ class Pre_processing:
         skimage.io.imshow(sampled_label)
         print('num label:', len(np.unique(sampled_label)))
         skimage.io.show()
-
 
 def main():
     prepare = Pre_processing()
