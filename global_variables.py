@@ -1,0 +1,27 @@
+import os
+
+PROJECT_ROOT_DIR = r'E:/MA/MIC-master'
+DATA_ROOT_DIR = 'E:\MA\MA_codes\eye\goals/Train/'
+IMG_DIR = DATA_ROOT_DIR + 'Image/'
+LABEL_DIR = DATA_ROOT_DIR + 'Layer_Masks/'
+TFRECORDS_DIR = PROJECT_ROOT_DIR + '/tfrecords/'
+TRAIN_DIR = TFRECORDS_DIR + 'train'
+VAL_DIR = TFRECORDS_DIR + 'val'
+TEST_DIR = TFRECORDS_DIR + 'test'
+RES_DIR = PROJECT_ROOT_DIR + '/res'
+CKPT_DIR = PROJECT_ROOT_DIR +'/ckpt'
+PRE_TEST_DIR = 'E:\MA\MA_codes\eye\goals\Test'
+
+'''hyperparameters'''
+TOTAL_IMGS = 100
+TRAIN_SET_RATIO = 0.7
+ORIGINAL_IMG_SIZE = (1100, 800)
+CROP_SIZE = ()
+RESIZED = (1024,1024)
+RESIZED_IMG = (1024,1024,3)
+RESIZED_LABEL = (1024,1024,1)
+CLASSES = 4
+EPOCH = 2
+BATCH_SIZE = 2
+LR_WARMUP = 5e-4
+LR_START = 1e-3
